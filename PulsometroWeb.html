@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monitor de Ritmo Cardíaco</title>
+</head>
+<body>
+  <h1>Monitor de Ritmo Cardíaco</h1>
+  <div id="bpm">Cargando...</div>
+  <script>
+    setInterval(() => {
+      fetch('http://192.168.0.12/bpm')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bpm').innerText = data;
+        });
+    }, 1000);
+  </script>
+</body>
+</html>
